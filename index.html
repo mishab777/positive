@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positive</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+        *{
+            font-family: "Outfit", sans-serif;
+        }
+        a{
+            text-decoration: none;
+        }
+        .navbar{
+            width: 100%;
+            height: 80px;
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar-mobile{
+            display: none;
+        }
+        .navbar-logo{
+            width: 25%;
+            height: 100%;
+        }
+        .navbar-logo img{
+            width: auto;
+            height: 100%;
+            object-fit: contain;
+        }
+        .navbar-contact{
+            width: 20%;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            flex-direction: row;
+            height: 100%;
+        }
+        .navbar-contact a{
+            text-decoration: none;
+        }
+        .navbar-contact a img{
+            width: 25px;
+            height: 25px;
+            margin-right: 20px;
+        }
+        .navbar-links{
+            width: 40%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar-links a{
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .navbar-links a i{
+            margin-left: 8px;
+        }
+            .dark-nav{
+            background: white;
+            transition: 0.5s ease;
+            border-bottom: 1px solid #e3cc8e;
+        }
+        .dropdown {
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  height: auto;
+  padding: 20px;
+  left: -50px;
+  width: 250px;
+  right: 0;
+  cursor: pointer;
+}
+.dropdown:hover .dropdown-content {
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+.dropdown-content a{
+    height: 50px;
+    border-bottom: 1px solid rgb(191, 191, 191);
+    width: 100%;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s ease;
+    justify-content: flex-start;
+}
+.dropdown-content a:hover{
+    border-bottom:1px solid #CCAB4D;
+    color: #CCAB4D;
+}
+.search-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 100vw;
+    left: 0;
+    height:auto;
+    top: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+.search-dropdown-content-inner{
+    width: 85%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.search-bar-sale-rent{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.search-bar-sale-rent button{
+    width: 49%;
+    height: 50px;
+    border: hidden;
+    font-weight: 600;
+    font-size: 18px;
+    border-bottom: 1px solid #CCAB4D;
+    background: none;
+}
+.search-bar-sale-rent button:focus{
+    border-bottom: 4px solid #CCAB4D;
+}
+.search-bar-sale-rent .focused {
+    border-bottom: 4px solid #CCAB4D;
+}
+.search-bar-inputs{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.search-dropdown-content-inner form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.search-bar-input{
+    width: 250px;
+    height: 40px;
+}
+.search-bar-input select{
+    width: 100%;
+    height: 100%;
+    border: hidden;
+    background-color: rgb(215, 215, 215);
+}
+.search-bar-button{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-bar-button button{
+    width: 100%;
+    height: 50px;
+    background-color: #CCAB4D;
+    color: white;
+    border: hidden;
+}
+.search-dropdown-content.active {
+    display: block;
+}
+        .bg-video-container {
+         position: relative;
+        width: 100%;
+        margin:auto;
+        }
+        .bg-video {
+         width: 100%;
+         height: auto;
+         object-fit: contain;
+        }
+        .home-section-one{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* background: rgba(0, 0, 0, 0.5); */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .home-section-one h1{
+        font-size: 60px;
+        color: white;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: center;
+        transition: 0.4s ease;
+    }
+    .home-section-one h1:hover{
+        -webkit-text-stroke: 2px white;
+        color: transparent;
+        cursor: pointer;
+    }
+    .buttons-and-searchbar{
+        height: 120px;
+   display: flex;
+   align-items: center;
+   justify-content:space-evenly;
+   flex-direction:column;
+   width: 800px;
+   /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
+}
+.search-form{
+    height: 70px;
+   display: flex;
+   align-items: center;
+   justify-content:space-evenly;
+   flex-direction:row;
+   width: 800px;
+   background-color:#D4D2D2;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+ .search-bar{
+   height: 70px;
+   display: flex;
+   align-items: center;
+   justify-content:space-evenly;
+   flex-direction:row;
+   width: 800px;
+   background-color:#D4D2D2;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+ }
+ .filter-buttons {
+      height:40px;
+      width:260px;
+    text-align: center;
+  }
+  .filter-buttons button{
+      background-color:black;
+      color:white;
+      border:hidden;
+      outline:none;
+      font-size:12px;
+      font-weight:bold;
+      width:120px;
+      height:40px;
+      transition: 0.5s ease;
+
+  }
+  .filter-buttons button:hover{
+      color:black;
+      background-color:white;
+  }
+  .option-text{
+    outline: none;
+    background-color: white;
+    border: hidden;
+    height: 45px;
+    width: 180px;
+    font-size: 13px;
+    border-radius:0px;
+}
+.search-button{
+      background-color:black;
+      color:white;
+      border:hidden;
+      outline:none;
+      height:45px;
+      font-size:13px;
+      width:160px;
+      transition: 0.5s ease;
+}
+.search-button:hover{
+    background-color: white;
+    color: black;
+}
+.category-cards{
+    width: 100%;
+    height: 150px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #CCAB4D;
+    transition:all 0.4s ease;
+}
+.category-cards-image{
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.category-cards-image img{
+    width: 35px;
+    height: 35px;
+}
+.category-cards h3{
+    font-size: 16px;
+    text-transform: uppercase;
+    color: white;
+
+}
+.category-cards:hover{
+    transform: translateY(-20px);
+    cursor: pointer;
+}
+.section-one h1{
+    font-size: 30px;
+    color: black;
+
+}
+.section-one-card{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+.section-one-card:hover{
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+.section-one-card-image{
+    height: 290px;
+    width: 100%;
+}
+.section-one-card-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.section-one-card-text{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-one-card-text h3{
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: black;
+}
+.property-filter{
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.property-filter button{
+    width: 120px;
+    height: 40px;
+    font-size: 13px;
+    font-weight: 500;
+    background: black;
+    border: hidden;
+    letter-spacing: 2px;
+    color: white;
+    margin-right: 20px;
+    border-radius: 15px;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+
+}
+.property-filter button:hover{
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+}
+.testimonials h1{
+    font-size: 30px;
+    color: black;
+}
+.testimonial-card{
+    width: 100%;
+    height: auto;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.testimonial-card-text{
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    justify-content: center;
+}
+.testimonial-card-text p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: gray;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.testimonial-card-bottom{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items:center;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-top: 1px solid black;
+
+}
+.testimonial-card-profile{
+    height: 70px;
+    width: 70px;
+    border: 4px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+.testimonial-card-profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.testimonial-card-bottom span{
+    color: black;
+    font-size: 16px;
+}
+.view-all-button{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.view-all-button button{
+    width: 200px;
+    height: 40px;
+    background-color: black;
+    border: hidden;
+    font-size: 13px;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    color: white;
+}
+.view-all-button button:hover{
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+}
+.view-all-awards{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.view-all-awards button{
+    width: 180px;
+    height: 40px;
+    background-color: #CCAB4D;
+    border: hidden;
+    font-size: 13px;
+    transition: all 0.4s ease;
+    border-radius: 15px;
+    color: white;
+}
+.view-all-awards button i{
+    margin-left: 10px;
+}
+.view-all-button button i{
+    margin-left: 10px;
+}
+.view-all-awards button:hover{
+    background-color: white;
+    color: #CCAB4D;
+    border: 2px solid #CCAB4D;
+}
+.award-card{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.award-card-image{
+    width: 100%;
+    height: 250px;
+}
+.award-card-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.award-card-details{
+    width: 100%;
+    height: 100px;
+    background-color: #CCAB4D;
+    color: #fff;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px;
+}
+.award-card-details h3{
+    font-size: 16px;
+    font-weight: 650;
+}
+.award-card-details span{
+    font-size: 14px;
+}
+.why-dubai h1{
+    font-size: 40px;
+    color: black;
+}
+.dubai-map{
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+    background-image: url(img/dubai-property-map.webp);
+    display: flex;
+    padding: 4%;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+.map-card{
+    width: 350px;
+    height: 450px;
+    background-color: #CCAB4D;
+    border-radius: 15px;
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.map-card h3{
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #fff;
+}
+.map-card span{
+    color: #fff;
+    font-size: 14px;
+}
+.map-card button{
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: white;
+    color: #CCAB4D;
+    border: hidden;
+    transition: all 0.4s ease;
+}
+.map-card button:hover{
+    background-color: black;
+}
+.footer-main{
+        background-color: black;
+    }
+    .footer-base{
+        padding-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid gray;
+    }
+    .footer-base span{
+        color: #fff;
+    }
+    .footer-base span a{
+        color: #CCAB4D;
+    }
+    .footer-col-1{
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+        justify-content: flex-start;
+    }
+    .footer-main a{
+        font-weight: 300;
+    }
+    .footer-main h3{
+        font-weight: 600;
+        color: #fff;
+        font-size: 20px;
+    }
+    .col-1-links{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    .col-1-links a{
+        text-decoration: none;
+        height: 35px;
+        width: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        border-radius: 50%;
+        margin-right: 15px;
+        transition: all 0.4s ease;
+    }
+    .col-1-links a i{
+        color: black;
+    }
+    .col-1-links a:hover{
+        background-color: #CCAB4D;
+    }
+    .col-1-logo{
+        height: 100px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border-bottom: 1px solid gray;
+    }
+    .col-1-logo img{
+        height: 50px;
+        width: auto;
+    }
+    .footer-col-2{
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+        justify-content: center;
+    }
+    .footer-col-3{
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-evenly;
+    }
+    .footer-col-2 a{
+        text-decoration: none;
+        color: rgb(197, 197, 197);
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    .footer-col-3 a{
+        text-decoration: none;
+        color: rgb(197, 197, 197);
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    .footer-col-3 a span{
+        color: rgb(196, 196, 196);
+    }
+    .footer-col-3 a i{
+        margin-right: 20px;
+        color: white;
+    }
+    @media(min-width:320px) and (max-width:480px){
+        .bg-video-container {
+  position: relative;
+  height: 80vh;
+  margin:auto;
+  width:100%;
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.home-section-one h1{
+    font-size: 40px;
+}
+.navbar-links{
+    align-items: center;
+    justify-content: flex-end;
+}
+.navbar-links a{
+    font-size: 25px;
+}
+.mobile-none{
+    display: none;
+}
+.navbar-contact{
+    display: none;
+}
+.navbar-mobile{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+.navbar-mobile button{
+    border: hidden;
+    background: none;
+}
+.navbar-mobile button img{
+    width: 30px;
+    height: 30px;
+}
+.search-bar-inputs{
+    flex-direction: column;
+    height: auto;
+}
+.search-bar-input{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.sidebar {
+        position: fixed;
+        top: 0;
+        left: -75%; 
+        width: 75%;
+        height: 100%;
+        background-color: white;
+        color: white;
+        /* padding: 20px; */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        transition: left 0.3s;
+        z-index: 999;
+    }
+    .sidebar.open {
+        left: 0; 
+    }
+    .sidebar-links-one{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    .sidebar-links-one a{
+        text-decoration: none;
+        color: black;
+        width: 100%;
+        margin-bottom: 5px;
+        display: flex;
+        font-size: 18px;
+        padding-left: 10px;
+        padding-right: 10px;
+        align-items: center;
+        background-color: rgb(213, 211, 211);
+        justify-content: space-between;
+        height: 50px;
+    }
+    .hidden-link-1{
+        display: none;
+    }
+    .hidden-link-2{
+        display: none;
+    }
+    .about-us-sub{
+        width: 100%;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        display: flex;
+        height: auto;
+    }
+    .about-us-sub a{
+        background: none;
+    }
+    .why-dubai-sub{
+        width: 100%;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        display: flex;
+        height: auto;
+    }
+    .why-dubai-sub a{
+        height: 50px;
+        width: 100%;
+        display: flex;
+        background:none;
+        border-bottom: hidden;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .sidebar-logo{
+        width: 100%;
+        height: 80px;
+        padding: 10px;
+    }
+    .sidebar-logo img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .sidebar-contact{
+        width: 100%;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-left: 20px;
+    }
+    .sidebar-contact a{
+        text-decoration: none;
+        color: black;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .sidebar-contact a i{
+        margin-right: 8px;
+    }
+    }
+    </style>
+</head>
+<body>
+    
+
+<div class="navbar" id="nav">
+    <div class="navbar-logo">
+        <img src="img/pp-logo-2.png" alt="">
+    </div>
+    <div class="navbar-links">
+        <a class="search-bar-navbar"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <div class="search-dropdown-content">
+            <div class="search-dropdown-content-inner">
+                <form>
+                <div class="search-bar-sale-rent">
+                    <button id="saleButton" type="button">Sale</button>
+                    <button id="rentButton" type="button">Rent</button>
+                </div>
+                <div class="search-bar-inputs">
+                    <div class="search-bar-input">
+                        <select name="" id="">
+                            <option value="" selected default>Community or Tower</option>
+                        </select>
+                    </div>
+                    <div class="search-bar-input">
+                        <select name="" id="">
+                            <option value="" selected default>Appartment</option>
+                        </select>
+                    </div>
+                    <div class="search-bar-input">
+                        <select name="" id="">
+                            <option value="" selected default>Bedroom</option>
+                        </select>
+                    </div>
+                    <div class="search-bar-input">
+                        <select name="" id="">
+                            <option value="" selected default>Price</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="search-bar-button">
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+            </div>
+        </div>
+        <a href="" class="mobile-none">BUY</a>
+        <a href="" class="mobile-none">RENT</a> 
+        <div class="dropdown">
+        <a href="" class="mobile-none">WHY DUBAI<i class="fa-solid fa-angle-down"></i></a>
+        <div class="dropdown-content">
+            <a href="">Investing in Dubai</a>
+            <a href="">New Areas in Focus</a>
+            <a href="">RO1 Calculator</a>
+            <a href="">Dubai Property Map</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="" class="mobile-none">About Us<i class="fa-solid fa-angle-down"></i></a>
+        <div class="dropdown-content">
+            <a href="">Our Story</a>
+            <a href="">Our Team</a>
+            <a href="">Media & Awards</a>
+            <a href="">Activities</a>
+            <a href="">Testimonials</a>
+        </div>
+    </div>   
+    </div>
+    <div class="navbar-contact">
+        <a href=""><img src="img/phone-call.png" alt=""></a>
+        <a href=""><img src="img/whatsapp.png" alt=""></a>
+    </div>
+    <div class="navbar-mobile">
+        <button id="sidebarToggle"><img src="img/menu.png" alt=""></a></button>
+        <div id="sidebar" class="sidebar">
+            <div class="sidebar-logo">
+                <img src="img/pp-logo-2.png" alt="">
+            </div>
+            <div class="sidebar-links-one">
+                <a href="">Buy</a>
+                <a href="">Rent</a>
+                <a id="why-dubai-link" class="text-dark">Why Dubai<i class="fa-solid fa-angle-down"></i></a>
+                <div class="hidden-link-1">
+                    <div class="why-dubai-sub">
+                        <a href="">Investing in Dubai</a>
+                        <a href="">New Areas in Focus</a>
+                        <a href="">RO1 Calculator</a>
+                        <a href="">Dubai Property Map</a>
+                    </div>
+                </div>
+                <a id="about-us-link" class="text-dark">About Us<i class="fa-solid fa-angle-down"></i></a>
+                <div class="hidden-link-2">
+                    <div class="about-us-sub">
+                        <a href="">Our Story</a>
+                        <a href="">Our Team</a>
+                        <a href="">Media & Awards</a>
+                        <a href="">Activities</a>
+                        <a href="">Testimonials</a>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-contact">
+                <a href=""><i class="fa-solid fa-square-phone"></i>+971 12 345 6789</a>
+                <a href=""><i class="fa-brands fa-square-whatsapp"></i>+971 2 345 6789</a>
+                <a href=""><i class="fa-solid fa-envelope"></i>info@positiveproperties.ae</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-video-container">
+    <video class="bg-video" autoplay muted loop>
+     <source src="img/pp-banner.mp4"/>
+     </video>
+    <div class="home-section-one">
+        <h1 class="mb-4">Your Property is <br>Our Priority</h1>
+    </div>
+    </div>
+    <div class="container pt-5 pb-5">
+        <div class="row gx-4 gy-3">
+            <div class="col-md-3">
+                <a href="">
+                <div class="category-cards">
+                    <div class="category-cards-image">
+                        <img src="img/rent.png" alt="">
+                    </div>
+                    <h3>BUY PROPERTY</h3>
+                </div>
+            </a>
+            </div>
+            <div class="col-md-3">
+                <a href="">
+                <div class="category-cards">
+                    <div class="category-cards-image">
+                        <img src="img/buy.png" alt="">
+                    </div>
+                    <h3>RENT PROPERTY</h3>
+                </div>
+            </a>
+            </div>
+            <div class="col-md-3">
+                <a href="">
+                <div class="category-cards">
+                    <div class="category-cards-image">
+                        <img src="img/sale.png" alt="">
+                    </div>
+                    <h3>SELL YOUR PROPERTY</h3>
+                </div>
+            </a>
+            </div>
+            <div class="col-md-3">
+                <a href="">
+                <div class="category-cards">
+                    <div class="category-cards-image">
+                        <img src="img/residential.png" alt="">
+                    </div>
+                    <h3>PROPERTY DEVELOPERS</h3>
+                </div>
+            </a>
+            </div>
+        </div>
+    </div>
+    <div class="container section-one pt-5 pb-5">
+        <h1 class="mb-4">FIND PROPERTIES FOR SALE AND RENT</h1>
+        <p class="mb-3">Apart from the well-earned reputation for highly personalized service and immaculate customer experience, Driven Properties is making its name as one of the most reliable sources when it comes to information on the property and market trends in Dubai.</p>
+        <p class="mb-5">Whether you are looking for a property in Dubai that is available for sale or for rent, we have a team of real estate experts who can assist in finding the right property in popular Dubai areas. Apart from helping you find property in Dubai we also offer a variety of real estate services that include property management, mortgage advisory, relocation services, property investment, property valuation, property brokerage and more</p>
+        <div class="row gx-4 gy-3">
+            <div class="col-md-4">
+                <div class="section-one-card">
+                    <div class="section-one-card-image">
+                        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/414231727.jpg?k=93b1bae9e37a3a180837b6deb78a78064960c7c0edd4b1480bfe74f6bb749efb&o=&hp=1" alt="">
+                    </div>
+                    <div class="section-one-card-text">
+                        <h3>APARTMENTS</h3>
+                    </div>
+                    <div class="property-filter">
+                        <button>FOR SALE</button>
+                        <button>FOR RENT</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="section-one-card">
+                    <div class="section-one-card-image">
+                        <img src="https://www.arabianbusiness.com/cloud/2021/09/15/OdJCwxf0-Damac-Hills-villa-(1)-(Medium).jpg" alt="">
+                    </div>
+                    <div class="section-one-card-text">
+                        <h3>TOWNHOUSE/VILLAS</h3>
+                    </div>
+                    <div class="property-filter">
+                        <button>FOR SALE</button>
+                        <button>FOR RENT</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="section-one-card">
+                    <div class="section-one-card-image">
+                        <img src="https://medias.residences-immobilier.com/pict/international/f1024x768/3/5/3/7/ext_0_3537903.jpg?t=1708456169" alt="">
+                    </div>
+                    <div class="section-one-card-text">
+                        <h3>PLOT/COMMERCIAL</h3>
+                    </div>
+                    <div class="property-filter">
+                        <button>FOR SALE</button>
+                        <button>FOR RENT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container testimonials pt-5 pb-5 px-3">
+        <h1 class="mb-3">TESTIMONIALS</h1>
+        <p class="mb-4">We take pride in delivering exceptional service and outstanding results. Don't just take our word for it—read what our satisfied customers have to say about their experiences with us. Their stories and feedback inspire us to continually strive for excellence</p>
+        <div class="row gx-4 gy-3">
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-card-text">
+                        <p>I had an incredible experience working with Positive Properties when purchasing my property in Dubai. From the initial consultation to the final closing, their professionalism, expertise, and dedication were evident in every step. They took the time to understand my needs, provided insightful market analysis, and guided me through the entire process with ease...</p>
+                    </div>
+                    <div class="testimonial-card-bottom">
+                        <div class="testimonial-card-profile">
+                            <img src="https://static.photocdn.pt/images/articles/2019/08/07/images/articles/2019/07/31/linkedin_profile_picture_tips-1.webp" alt="">
+                        </div>
+                        <span>David Brown</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-card-text">
+                        <p>I had an incredible experience working with Positive Properties when purchasing my property in Dubai. From the initial consultation to the final closing, their professionalism, expertise, and dedication were evident in every step. They took the time to understand my needs, provided insightful market analysis, and guided me through the entire process with ease...</p>
+                    </div>
+                    <div class="testimonial-card-bottom">
+                        <div class="testimonial-card-profile">
+                            <img src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" alt="">
+                        </div>
+                        <span>John Smith</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-card-text">
+                        <p>I had an incredible experience working with Positive Properties when purchasing my property in Dubai. From the initial consultation to the final closing, their professionalism, expertise, and dedication were evident in every step. They took the time to understand my needs, provided insightful market analysis, and guided me through the entire process with ease...</p>
+                    </div>
+                    <div class="testimonial-card-bottom">
+                        <div class="testimonial-card-profile">
+                            <img src="https://imgv3.fotor.com/images/ai-headshot-generator/AI-generated-LinkedIn-profile-picture-of-a-female-with-long-hair-in-brown-and-white-suit-using-Fotor-AI-LinkedIn-photo-generator.jpg" alt="">
+                        </div>
+                        <span>Natalia Ivanova</span>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-button mt-5">
+                <a href=""><button>View All Testimonials<i class="fa-solid fa-arrow-right-long"></i></button></a>
+            </div>
+        </div>
+    </div>
+    <div class="container awards pt-4 pb-4">
+        <h1>Our Achievements</h1>
+        <p>We are honored to be recognized for our commitment to excellence and innovation in the industry. Our awards and accolades are a testament to the hard work and dedication of our team.</p>
+        <p class="mb-4"> These achievements motivate us to continually push the boundaries and deliver outstanding results for our clients. Explore our accolades to see how we have been acknowledged by industry leaders and organizations.</p>
+        <div class="row gx-4 gy-3">
+            <div class="col-md-3">
+                <div class="award-card">
+                    <div class="award-card-image">
+                        <img src="https://greba.in/wp-content/uploads/2023/06/AWARD-315x874-1.webp" alt="">
+                    </div>
+                    <div class="award-card-details">
+                        <h3>Global Real-Estate Award</h3>
+                        <span>Property Finder - 2023</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="award-card">
+                    <div class="award-card-image">
+                        <img src="https://candortechspace.com/wp-content/uploads/2023/06/ET-Real-Estate-Award-2022-East-Trophy.png" alt="">
+                    </div>
+                    <div class="award-card-details">
+                        <h3>Global Real-Estate Award</h3>
+                        <span>Property Finder - 2023</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="award-card">
+                    <div class="award-card-image">
+                        <img src="https://atlas-content-cdn.pixelsquid.com/stock-images/star-glass-award-trophy-RBe8878-600.jpg" alt="">
+                    </div>
+                    <div class="award-card-details">
+                        <h3>Global Real-Estate Award</h3>
+                        <span>Property Finder - 2023</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="award-card">
+                    <div class="award-card-image">
+                        <img src="https://www.nicepng.com/png/detail/35-354015_star-column-trophy-award-trophy-crystal-png.png" alt="">
+                    </div>
+                    <div class="award-card-details">
+                        <h3>Global Real-Estate Award</h3>
+                        <span>Property Finder - 2023</span>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-awards mt-5">
+                <a href=""><button>View All Awards<i class="fa-solid fa-arrow-right-long"></i></button></a>
+            </div>
+        </div>
+    </div>
+    <div class="container why-dubai pt-4 pb-4">
+        <h1>Why Dubai?</h1>
+        <p>At Positive Properties, our extensive database of listings makes it easy to find your ideal property in Dubai, tailored to your budget and location preferences.</p>
+        <p> Whether you're looking for a luxurious villa in Arabian Ranches or a modern apartment in Downtown Dubai, our expert team is here to guide you. With our expertise, you can navigate the Dubai property market with ease, exploring top areas like Dubai Marina, Palm Jumeirah, and Dubai Hills Estate.</p>
+        <p> Let us help you discover your dream home or investment opportunity in the city. Get in touch with us today!</p>
+    </div>
+    <div class="dubai-map">
+        <div class="map-card">
+            <h3>DUBAI PROPERTY MAP</h3>
+            <span>View Dubai Properties On Map</span>
+            <a href=""><button>Apartment For Sale</button></a>
+            <a href=""><button>Apartment For Rent</button></a>
+            <a href=""><button>Townhouse For Sale</button></a>
+            <a href=""><button>Townhouse For Rent</button></a>
+            <a href=""><button>Plot For Sale</button></a>
+            <a href=""><button>Plot For Rent</button></a>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-main pt-4 pb-4"> 
+            <div class="container pb-3">
+                <div class="row gx-4 gy-3">
+                    <div class="col-md-3">
+                     <div class="footer-col-1">
+                        <div class="col-1-logo">
+                            <img src="img/pp-logo-3.png" alt="">
+                        </div>
+                           <h3 class="mb-3 mt-3">Follow Us</h3>
+                            <div class="col-1-links">
+                                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                                <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+                                <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href=""><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 p-3">
+                        <div class="footer-col-2">
+                            <h3 >Explore</h3>
+                            <a href="">Buy</a>
+                            <a href="">Rent</a>
+                            <a href="">Commercial</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 p-3">
+                        <div class="footer-col-2">
+                            <h3>Quick Links</h3>
+                            <a href="">About Us</a>
+                            <a href="">Contact Us</a>
+                            <a href="">Privacy Policy</a>
+                            <a href="">Terms & Conditions</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="footer-col-3">
+                        <h3>Need Help?</h3>
+                        <a><i class="fa-solid fa-phone"></i><span>+971 12 345 7689</span></a>
+                        <a><i class="fa-solid fa-envelope"></i><span>info@positiveproperties.ae</span></a>
+                        <a><i class="fa-solid fa-building"></i><span>Suite 703, Yes Business Center - Al Barsha 1 - Dubai(UAE)</span></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="footer-base">
+                <span>Copyright © 2024 <a href="">Positive Properties</a> | All rights reserved</span>
+            </div>
+        </div>
+    </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const searchBarIcon = document.querySelector('.search-bar-navbar');
+    const searchDropdown = document.querySelector('.search-dropdown-content');
+    const saleButton = document.getElementById('saleButton');
+    const rentButton = document.getElementById('rentButton'); 
+
+     saleButton.classList.add('focused');
+
+saleButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    saleButton.classList.add('focused');
+    rentButton.classList.remove('focused');
+});
+
+rentButton.addEventListener('click', function (event) {
+    event.preventDefault();
+        rentButton.classList.add('focused');
+        saleButton.classList.remove('focused');
+    });
+
+    searchBarIcon.addEventListener('click', function(event) {
+        event.preventDefault();
+        searchDropdown.classList.toggle('active');
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!searchBarIcon.contains(event.target) && !searchDropdown.contains(event.target)) {
+            searchDropdown.classList.remove('active');
+        }
+    });
+});
+
+</script>
+
+    <script>
+        const nav = document.getElementById('nav');
+    
+        function handleScroll() {
+          if (window.scrollY > 50) {
+            nav.classList.add('dark-nav');
+          } else {
+            nav.classList.remove('dark-nav');
+          }
+        }
+    
+        window.addEventListener('scroll', handleScroll);
+      </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const sidebarToggle = document.getElementById('sidebarToggle');
+                const sidebar = document.getElementById('sidebar');
+            
+                sidebarToggle.addEventListener('click', (e) => {
+                    e.stopPropagation(); 
+                    sidebar.classList.toggle('open');
+                });
+            
+                document.addEventListener('click', (e) => {
+                    if (sidebar.classList.contains('open') && !sidebar.contains(e.target)) {
+                        sidebar.classList.remove('open');
+                    }
+                });
+            
+                sidebar.addEventListener('click', (e) => {
+                    e.stopPropagation(); 
+                });
+            });
+            
+            
+                </script>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
+                     $(document).ready(function(){
+        $("#why-dubai-link").click(function(){
+            $(".hidden-link-1").slideToggle();
+        });
+        $("#about-us-link").click(function(){
+            $(".hidden-link-2").slideToggle();
+        });
+    });
+                </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
